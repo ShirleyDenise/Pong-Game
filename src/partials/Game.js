@@ -17,8 +17,8 @@ export default class Game {
 		
 	
 		this.gameElement = document.getElementById(this.element);
+		this.pause = false;
 
-		
 
 		this.board = new Board(this.width, this.height);
 
@@ -48,9 +48,21 @@ export default class Game {
 			this.height,
 			this.direction,
 		)
+
+		document.addEventListener('keydown', event => {
+			switch (event.keycode) {
+				case KEYS.spaceBar:
+				this.pause = !this.pause;
+				break;
+			}
+		});
 	}
 
 	render() {
+
+		if (this.pause) {
+			return;
+		}
 
 		this.gameElement.innerHTML = '';
 		
@@ -62,9 +74,11 @@ export default class Game {
         
 		
 		this.board.render(svg);
+		this.ball.render(svg);
+
 		this.player1.render(svg);
 		this.player2.render(svg);
-		this.ball.render(svg);
+		
 		
 	}
 
