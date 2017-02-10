@@ -466,6 +466,8 @@
 
 	var Game = function () {
 		function Game(element, width, height) {
+			var _this = this;
+
 			_classCallCheck(this, Game);
 
 			this.element = element;
@@ -477,6 +479,7 @@
 			this.radius = 8;
 
 			this.gameElement = document.getElementById(this.element);
+			this.pause = false;
 
 			this.board = new _Board2.default(this.width, this.height);
 
@@ -485,11 +488,23 @@
 			this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down);
 
 			this.ball = new _Ball2.default(this.radius, this.width, this.height, this.direction);
+
+			document.addEventListener('keydown', function (event) {
+				switch (event.keycode) {
+					case _settings.KEYS.spaceBar:
+						_this.pause = !_this.pause;
+						break;
+				}
+			});
 		}
 
 		_createClass(Game, [{
 			key: 'render',
 			value: function render() {
+
+				if (this.pause) {
+					return;
+				}
 
 				this.gameElement.innerHTML = '';
 
@@ -500,9 +515,10 @@
 				this.gameElement.appendChild(svg);
 
 				this.board.render(svg);
+				this.ball.render(svg);
+
 				this.player1.render(svg);
 				this.player2.render(svg);
-				this.ball.render(svg);
 			}
 		}]);
 
@@ -523,11 +539,12 @@
 	var SVG_NS = exports.SVG_NS = 'http://www.w3.org/2000/svg';
 
 	var KEYS = exports.KEYS = {
-	  a: 65, // player 1 up key
-	  z: 90, // player 1 down key
-	  up: 38, // player 2 up key
-	  down: 40, // player 2 down key
-	  spaceBar: 32 };
+	  a: 65,
+	  z: 90,
+	  up: 38,
+	  down: 40,
+	  spaceBar: 32
+	};
 
 /***/ },
 /* 11 */
@@ -684,6 +701,20 @@
 	  }
 
 	  _createClass(Ball, [{
+	    key: 'wallCollision',
+	    value: function wallCollision() {
+	      var hitLeft = this.x - this.radius <= 0;
+	      var hitRight = this.x + this.radius >= this.boardWidth;
+	      var hitTop = this.y - this.radius <= 0;
+	      var hitBottom = this.y + this.radius >= this.boardHeight;
+
+	      if (hitLeft || hitRight) {
+	        this.vx = -this.vx;
+	      } else if (hitTop || hitBottom) {
+	        this.vy = -this.vy;
+	      }
+	    }
+	  }, {
 	    key: 'reset',
 	    value: function reset() {
 	      this.x = this.boardWidth / 2;
@@ -702,6 +733,8 @@
 	    value: function render(svg) {
 	      this.x += this.vx;
 	      this.y += this.vy;
+
+	      this.wallCollision();
 
 	      var circle = document.createElementNS(_settings.SVG_NS, 'circle');
 	      circle.setAttributeNS(null, 'cx', this.x);
