@@ -1,4 +1,4 @@
-import { SVG_NS} from '../settings';
+import { SVG_NS } from '../settings';
 
 export default class Ball {
 
@@ -68,6 +68,11 @@ export default class Ball {
   this.vx = this.direction * (6 - Math.abs(this.vy));
 }
 
+  goal(player) {
+     player.score++;
+     this.reset();   
+  }
+
   render(svg, player1, player2) {
    this.x += this.vx;
    this.y += this.vy;
@@ -82,5 +87,20 @@ export default class Ball {
    circle.setAttributeNS(null, 'fill', 'white');
 
    svg.appendChild(circle);
+
+   const rightGoal = this.x + this.radius >= this.boardWidth;
+   const leftGoal = this.x - this.radius <= 0;
+
+   if(rightGoal) {
+       this.goal(player1);
+       this.direction = 1;
+       
+       
+   }else if (leftGoal) {
+       this.goal(player2);
+       this.direction = -1;
+       
+
+   }
   }
 }

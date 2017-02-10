@@ -3,6 +3,7 @@ import { SVG_NS, KEYS } from '../settings';
 import Board from './Board';
 import Paddle from './Paddle';
 import Ball from './Ball';
+import Score from './Score';
 
 export default class Game {
 
@@ -47,7 +48,10 @@ export default class Game {
 			this.width,
 			this.height,
 			this.direction,
-		)
+			);
+
+		this.Score1 = new Score( this.width / 2 - 50, 30, 30 );
+		this.Score2 = new Score( this.width / 2 + 50, 30, 30 );
 
 		document.addEventListener('keydown', event => {
 			switch (event.keycode) {
@@ -78,6 +82,11 @@ export default class Game {
 
 		this.player1.render(svg);
 		this.player2.render(svg);
+		
+		this.Score1.render(svg);
+		this.Score2.render(svg);
+
+		
 		
 		
 	}
