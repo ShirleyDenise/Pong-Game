@@ -51,7 +51,7 @@ export default class Game {
 			);
 
 		this.Score1 = new Score( this.width / 2 - 50, 30, 30 );
-		this.Score2 = new Score( this.width / 2 + 50, 30, 30 );
+		this.Score2 = new Score( this.width / 2 + 25, 30, 30 );
 
 		document.addEventListener('keydown', event => {
 			switch (event.keycode) {
@@ -83,8 +83,8 @@ export default class Game {
 		this.player1.render(svg);
 		this.player2.render(svg);
 		
-		this.Score1.render(svg);
-		this.Score2.render(svg);
+		this.Score1.render(svg, this.player1.score);
+		this.Score2.render(svg, this.player2.score);
 
 		
 		

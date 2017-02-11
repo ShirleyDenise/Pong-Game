@@ -6,20 +6,20 @@ export default class Score {
     this.x = x;
     this.y = y;
     this.size = size;
-    this.score = 0;
+    
   }
  
- render(svg) {
+ render(svg, score) {
     
-    let score= document.createElementNS(SVG_NS, 'text');
-    score.setAttributeNS(null, 'x', this.x);
-    score.setAttributeNS(null, 'y', this.y);
-    score.setAttributeNS(null, 'fill', 'white');
-    score.setAttributeNS(null, 'font-family', 'Silkscreen Web');
-    score.setAttributeNS(null, 'font-size', this.size);
-    score.innerHTML = this.score;
+    let text= document.createElementNS(SVG_NS, 'text');
+    text.setAttributeNS(null, 'x', this.x);
+    text.setAttributeNS(null, 'y', this.y);
+    text.setAttributeNS(null, 'fill', 'white');
+    text.setAttributeNS(null, 'font-family', '"Silkscreen Web", monotype');
+    text.setAttributeNS(null, 'font-size', this.size);
+    text.innerHTML = score;
 
-    svg.appendChild(score);
+    svg.appendChild(text);
  }
 
 }
