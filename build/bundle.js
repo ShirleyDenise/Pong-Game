@@ -494,7 +494,7 @@
 			this.ball = new _Ball2.default(this.radius, this.width, this.height, this.direction);
 
 			this.Score1 = new _Score2.default(this.width / 2 - 50, 30, 30);
-			this.Score2 = new _Score2.default(this.width / 2 + 50, 30, 30);
+			this.Score2 = new _Score2.default(this.width / 2 + 25, 30, 30);
 
 			document.addEventListener('keydown', function (event) {
 				switch (event.keycode) {
@@ -527,8 +527,8 @@
 				this.player1.render(svg);
 				this.player2.render(svg);
 
-				this.Score1.render(svg);
-				this.Score2.render(svg);
+				this.Score1.render(svg, this.player1.score);
+				this.Score2.render(svg, this.player2.score);
 			}
 		}]);
 
@@ -842,22 +842,21 @@
 	    this.x = x;
 	    this.y = y;
 	    this.size = size;
-	    this.score = 0;
 	  }
 
 	  _createClass(Score, [{
 	    key: 'render',
-	    value: function render(svg) {
+	    value: function render(svg, score) {
 
-	      var score = document.createElementNS(_settings.SVG_NS, 'text');
-	      score.setAttributeNS(null, 'x', this.x);
-	      score.setAttributeNS(null, 'y', this.y);
-	      score.setAttributeNS(null, 'fill', 'white');
-	      score.setAttributeNS(null, 'font-family', 'Silkscreen Web');
-	      score.setAttributeNS(null, 'font-size', this.size);
-	      score.innerHTML = this.score;
+	      var text = document.createElementNS(_settings.SVG_NS, 'text');
+	      text.setAttributeNS(null, 'x', this.x);
+	      text.setAttributeNS(null, 'y', this.y);
+	      text.setAttributeNS(null, 'fill', 'white');
+	      text.setAttributeNS(null, 'font-family', '"Silkscreen Web", monotype');
+	      text.setAttributeNS(null, 'font-size', this.size);
+	      text.innerHTML = score;
 
-	      svg.appendChild(score);
+	      svg.appendChild(text);
 	    }
 	  }]);
 
