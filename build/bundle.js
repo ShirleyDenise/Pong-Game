@@ -718,6 +718,8 @@
 	    this.boardHeight = boardHeight;
 	    this.direction = 1;
 
+	    this.ping = new Audio('public/sounds/pong-01.wav');
+
 	    this.reset();
 	  }
 
@@ -749,6 +751,7 @@
 
 	        if (this.x + this.radius >= leftX && this.x + this.radius <= rightX && this.y >= topY && this.y <= bottomY) {
 	          this.vx = -this.vx;
+	          this.ping.play();
 	        }
 	      } else {
 	        var _paddle2 = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
@@ -761,6 +764,7 @@
 
 	        if (this.x - this.radius >= _leftX && this.x - this.radius <= _rightX && this.y >= _topY && this.y <= _bottomY) {
 	          this.vx = -this.vx;
+	          this.ping.play();
 	        }
 	      }
 	    }
