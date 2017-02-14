@@ -78,6 +78,7 @@ export default class Ball {
      this.reset();
      if (player.score === 12) {
       alert ('WE HAVE A WINNER!');
+      location.reload();
      }   
   }
 
@@ -102,21 +103,12 @@ export default class Ball {
    if(rightGoal) {
        this.goal(player1);
        this.direction = 1;
-        //   if(player.Score === '10')
-        //   {
-        // alert('Player 1 Wins');
-        //   }
        
        
    }else if (leftGoal) {
        this.goal(player2);
        this.direction = -1;
-        //   if(player.Score === '10')
-        //   {
-        // alert('Player 2 Wins');
-        //   }
        
-
    }
   }
 }

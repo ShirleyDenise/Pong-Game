@@ -97,7 +97,7 @@
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed, \nfigure, figcaption, footer, header, hgroup, \nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n\n/**\n * FONTS\n */\n\n@font-face {\n  font-family: 'Silkscreen Web';\n  src: url(" + __webpack_require__(4) + ");\n  src: url(" + __webpack_require__(4) + "?#iefix) format('embedded-opentype'),\n    url(" + __webpack_require__(5) + ") format('woff'),\n    url(" + __webpack_require__(6) + ") format('truetype'),\n    url(" + __webpack_require__(7) + "#silkscreennormal) format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n\n/**\n * GAME\n */\n\nhtml {\n  font-size: 16px;\n}\n\nbody {\n  align-items: center;\n  display: flex;\n  font-family: 'Silkscreen Web', monotype;\n  height: 100vh;\n  justify-content: center;\n  width: 100%;\n}\n\nh1 {\n  font-size: 2.5rem;\n  margin-bottom: 1rem; \n  text-align: center;\n}\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed, \nfigure, figcaption, footer, header, hgroup, \nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n\n/**\n * FONTS\n */\n\n@font-face {\n  font-family: 'Silkscreen Web';\n  src: url(" + __webpack_require__(4) + ");\n  src: url(" + __webpack_require__(4) + "?#iefix) format('embedded-opentype'),\n    url(" + __webpack_require__(5) + ") format('woff'),\n    url(" + __webpack_require__(6) + ") format('truetype'),\n    url(" + __webpack_require__(7) + "#silkscreennormal) format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n\n/**\n * GAME\n */\n\nhtml {\n  font-size: 16px;\n  background-image: url('http://cdn.pcwallart.com/images/universe-stars-background-wallpaper-3.jpg');\n}\n\nbody {\n  align-items: center;\n  display: flex;\n  font-family: 'Silkscreen Web', monotype;\n  height: 100vh;\n  justify-content: center;\n  width: 100%;\n}\n\nh1 {\n  font-size: 2.5rem;\n  margin-bottom: 1rem; \n  text-align: center;\n  color: deepskyblue;\n}\n", ""]);
 
 	// exports
 
@@ -495,7 +495,7 @@
 
 			this.score1 = new _Score2.default(this.width / 2 - 50, 30, 30);
 			this.score2 = new _Score2.default(this.width / 2 + 25, 30, 30);
-			this.maxScore = 12;
+			// this.maxScore = 12;
 
 			document.addEventListener('keydown', function (event) {
 				switch (event.keycode) {
@@ -588,9 +588,7 @@
 	      var rect = document.createElementNS(_settings.SVG_NS, 'rect');
 	      rect.setAttributeNS(null, 'width', this.width);
 	      rect.setAttributeNS(null, 'height', this.height);
-	      rect.setAttributeNS(null, 'fill', '#353535');
-	      //    rect.setAttributeNS(null, 'x', '0');
-	      //    rect.setAttributeNS(null, 'y', '0');
+	      rect.setAttributeNS(null, 'fill', 'none');
 
 	      var line = document.createElementNS(_settings.SVG_NS, 'line');
 	      line.setAttributeNS(null, 'stroke-dasharray', '20 15');
@@ -788,9 +786,9 @@
 	    value: function goal(player) {
 	      player.score++;
 	      this.reset();
-	      //  if (player.score >= maxScore) {
-	      //   winnerAlert = ('WE HAVE A WINNER!');
-	      //  }   
+	      if (player.score === 12) {
+	        alert('WE HAVE A WINNER!');
+	      }
 	    }
 	  }, {
 	    key: 'render',
@@ -805,7 +803,7 @@
 	      circle.setAttributeNS(null, 'cx', this.x);
 	      circle.setAttributeNS(null, 'cy', this.y);
 	      circle.setAttributeNS(null, 'r', this.radius);
-	      circle.setAttributeNS(null, 'fill', 'white');
+	      circle.setAttributeNS(null, 'fill', 'deepskyblue');
 
 	      svg.appendChild(circle);
 
@@ -815,9 +813,19 @@
 	      if (rightGoal) {
 	        this.goal(player1);
 	        this.direction = 1;
+	        //   if(player.Score === '10')
+	        //   {
+	        // alert('Player 1 Wins');
+	        //   }
+
 	      } else if (leftGoal) {
 	        this.goal(player2);
 	        this.direction = -1;
+	        //   if(player.Score === '10')
+	        //   {
+	        // alert('Player 2 Wins');
+	        //   }
+
 	      }
 	    }
 	  }]);
@@ -850,7 +858,6 @@
 	    this.x = x;
 	    this.y = y;
 	    this.size = size;
-	    // this.maxScore = 12;
 	  }
 
 	  _createClass(Score, [{
