@@ -55,12 +55,11 @@ export default class Game {
 
 		document.addEventListener('keydown', event => {
 			switch (event.keycode) {
-				case KEYS.spaceBar:
+				case this.space:
 				this.pause = !this.pause;
 				break;
 			}
 		});
-
 	}
 
 	render() {
