@@ -16,14 +16,26 @@ Player 2:
 ▲ : up
 ▼: down
 
-
+Pause :
+Spacebar
 - - -
+
+##### Tools:
+
+Webpack, Javascript/ES2015, SVGs, HTML, CSS
 
 ##### Learning Experience:
 
-Using SVGs to create each element of the game; the board, the ball, the paddles, the score.
+Using **SVGs** to create each element of the game; the board, the ball, the paddles(players), the score.
 
-And putting everything together with Javascript.
+Appropriate action/method for each element of the game.
+
+Use of **constructor** to create the different actions/elements of the game.
+
+New object using **new**.
+
+Use of **this** within classes.
+
 
 
 
