@@ -23,7 +23,7 @@ Player 2:
 
 Using SVGs to create each element of the game; the board, the ball, the paddles, the score.
 
-And putting everyhting together with Javascript.
+And putting everything together with Javascript.
 
 
 
