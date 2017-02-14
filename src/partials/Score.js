@@ -6,7 +6,6 @@ export default class Score {
     this.x = x;
     this.y = y;
     this.size = size;
-    
   }
  
  render(svg, score) {

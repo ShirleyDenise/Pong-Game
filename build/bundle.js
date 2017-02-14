@@ -493,8 +493,9 @@
 
 			this.ball = new _Ball2.default(this.radius, this.width, this.height, this.direction);
 
-			this.Score1 = new _Score2.default(this.width / 2 - 50, 30, 30);
-			this.Score2 = new _Score2.default(this.width / 2 + 25, 30, 30);
+			this.score1 = new _Score2.default(this.width / 2 - 50, 30, 30);
+			this.score2 = new _Score2.default(this.width / 2 + 25, 30, 30);
+			this.maxScore = 12;
 
 			document.addEventListener('keydown', function (event) {
 				switch (event.keycode) {
@@ -527,8 +528,8 @@
 				this.player1.render(svg);
 				this.player2.render(svg);
 
-				this.Score1.render(svg, this.player1.score);
-				this.Score2.render(svg, this.player2.score);
+				this.score1.render(svg, this.player1.score);
+				this.score2.render(svg, this.player2.score);
 			}
 		}]);
 
@@ -787,6 +788,9 @@
 	    value: function goal(player) {
 	      player.score++;
 	      this.reset();
+	      //  if (player.score >= maxScore) {
+	      //   winnerAlert = ('WE HAVE A WINNER!');
+	      //  }   
 	    }
 	  }, {
 	    key: 'render',
@@ -846,6 +850,7 @@
 	    this.x = x;
 	    this.y = y;
 	    this.size = size;
+	    // this.maxScore = 12;
 	  }
 
 	  _createClass(Score, [{

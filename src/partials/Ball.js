@@ -7,7 +7,7 @@ export default class Ball {
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
     this.direction = 1;
-
+    
     this.ping = new Audio('public/sounds/pong-01.wav');
 
 
@@ -75,7 +75,10 @@ export default class Ball {
 
   goal(player) {
      player.score++;
-     this.reset();   
+     this.reset();
+     if (player.score === 12) {
+      alert ('WE HAVE A WINNER!');
+     }   
   }
 
   render(svg, player1, player2) {
@@ -89,7 +92,7 @@ export default class Ball {
    circle.setAttributeNS(null, 'cx', this.x);
    circle.setAttributeNS(null, 'cy', this.y);
    circle.setAttributeNS(null, 'r', this.radius);
-   circle.setAttributeNS(null, 'fill', 'white');
+   circle.setAttributeNS(null, 'fill', 'deepskyblue');
 
    svg.appendChild(circle);
 
@@ -99,11 +102,19 @@ export default class Ball {
    if(rightGoal) {
        this.goal(player1);
        this.direction = 1;
+        //   if(player.Score === '10')
+        //   {
+        // alert('Player 1 Wins');
+        //   }
        
        
    }else if (leftGoal) {
        this.goal(player2);
        this.direction = -1;
+        //   if(player.Score === '10')
+        //   {
+        // alert('Player 2 Wins');
+        //   }
        
 
    }
