@@ -6,21 +6,20 @@
 - - -
 
 
-##### ++Keys:++
+##### Keys:
 
-++Player 1:++
+Player 1:
 a: up
 z: down
 
-
-++Player 2:++
+Player 2:
 ▲ : up
 ▼: down
 
 
 - - -
 
-##### ++Learning Experience:++
+##### Learning Experience:
 
 Using SVGs to create each element of the game; the board, the ball, the paddles, the score.
 
